@@ -1,0 +1,15 @@
+services:
+    app:
+        image: ruby:3.4.7
+        working_dir: /app
+        volumes:
+            - ./:/app
+        ports:
+            - 8000:8000
+        command: tail -f /dev/null
+        networks:
+            - demo-rails-ntw
+
+networks:
+    demo-rails-ntw:
+        driver: bridge
