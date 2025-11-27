@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "unsubscribes/show"
   resource :session
   resources :passwords, param: :token
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -18,4 +19,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :subscribers, only: [:create]
   end
+
+  resource :unsubscribe, only: [:show]
 end
