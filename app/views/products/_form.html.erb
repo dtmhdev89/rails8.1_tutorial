@@ -1,6 +1,9 @@
 <%= form_with model: product do |form| %>
-    <div>
-        <%= form.label :name %>
+    <div data-controller="hello">
+        <div data-hello-target="tooltip" class="tooltip-box hidden">
+            The name field requires a unique, non-empty value.
+        </div>
+        <%= form.label :name, data: {action: "mouseenter->hello#show_tooltip mouseleave->hello#hide_tooltip"} %>
         <% if form.object.errors.any? %>
             <p class="error">
                 <%= form.object.errors.full_messages.first %>
