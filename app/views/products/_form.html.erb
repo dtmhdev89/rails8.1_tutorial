@@ -9,7 +9,7 @@
                 <%= form.object.errors.full_messages.first %>
             </p>
         <% end %>
-        <%= form.text_field :name %>
+        <%= form.text_field :name, data: { hello_target: "name", action: "keyup->hello#update_name_value"} %>
     </div>
 
     <div>
